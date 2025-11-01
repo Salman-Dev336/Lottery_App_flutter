@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp( MyApp());
@@ -12,6 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Random random = Random();
   // my lucky number
   int x = 7;
 
@@ -39,24 +41,34 @@ class _MyAppState extends State<MyApp> {
                 fontWeight: FontWeight.bold,
               ),),
             ),
+            SizedBox(height: 15,),
             Container(
               height: 250,
               decoration: BoxDecoration(
                 color: Colors.lightGreenAccent,
+                borderRadius: BorderRadius.circular(15),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(Icons.error,color: Colors.red,size: 30,),
-                  SizedBox(height: 10,),
-                  Text('Better Luck Next Time Your Winning Number is $x'),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(Icons.error,color: Colors.red,size: 30,),
+                    SizedBox(height: 10,),
+                    Text('Better Luck Next Time Your Winning Number is $x\n try again',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),),
+                  ],
+                ),
               ),
             ),
           ],
         ),
         floatingActionButton: FloatingActionButton(onPressed: (){
+          print(random.nextInt(10).toString());
         },
           child: Icon(Icons.refresh_rounded),
           backgroundColor: Colors.pinkAccent,
