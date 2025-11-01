@@ -12,7 +12,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int x = 0;
+  // my lucky number
+  int x = 7;
 
   @override
   Widget build(BuildContext context) {
@@ -20,31 +21,36 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My first App'),
-          backgroundColor: Colors.blue,
+          title: Text('Lottery App',
+            style: TextStyle(
+              color: Colors.white,
+          ),
         ),
-        body: SafeArea(
-            child: Center(
-              child: Text(x.toString(),
-                style: TextStyle(
-                  fontSize: 50,
-                ),),
-            )
+          backgroundColor: Colors.pinkAccent,
+          centerTitle: true,
         ),
-        floatingActionButton: FloatingActionButton(onPressed:
-            () {
-          x++;
-          setState(() {
-
-          });
-          print(x.toString());
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: Text('Your winning Number is : $x',style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),),
+            ),
+            Text(x>5? 'x is greater then 5': x.toString()),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(onPressed: (){
         },
-          child: Icon(Icons.add),
-          backgroundColor: Colors.blue,
+          child: Icon(Icons.refresh_rounded),
+          backgroundColor: Colors.pinkAccent,
         ),
-      ),
+      )
     );
   }
 }
+
 
 
