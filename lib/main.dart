@@ -39,7 +39,21 @@ class _MyAppState extends State<MyApp> {
                 fontWeight: FontWeight.bold,
               ),),
             ),
-            Text(x>5? 'x is greater then 5': x.toString()),
+            Container(
+              height: 250,
+              decoration: BoxDecoration(
+                color: Colors.lightGreenAccent,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(Icons.error,color: Colors.red,size: 30,),
+                  SizedBox(height: 10,),
+                  Text('Better Luck Next Time Your Winning Number is $x'),
+                ],
+              ),
+            ),
           ],
         ),
         floatingActionButton: FloatingActionButton(onPressed: (){
